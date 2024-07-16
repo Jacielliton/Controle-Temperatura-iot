@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud IoT Indústria 4.0 Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cloud IoT Indústria 4.0 Dashboard</h1>
+        <div class="description">
+            <p>Bem-vindo ao Dashboard da AMA - Associação dos Amigos do Autista do Maranhão.</p>
+            <p>Esta plataforma foi desenvolvida para coletar, processar e visualizar dados de sensores IoT, facilitando a organização e a utilização dos dados socioeconômicos para melhor tomada de decisões.</p>
+            <p>Os sensores utilizados incluem:</p>
+            <ul>
+                <li><strong>Sensor de Temperatura:</strong> Mede a temperatura ambiente (em °C).</li>
+                <li><strong>Sensor de Umidade:</strong> Mede a umidade relativa do ar (em %).</li>
+            </ul>
+            <p>Utilize o link abaixo para inserir manualmente novos dados de sensores ou conectar a um Arduino:</p>
+        </div>
+        <div class="graph">
+            {{ graph | safe }}
+        </div>
+        <a href="{{ url_for('main.add_data') }}" class="btn">Adicionar Novo Dado</a></br>
+        <a href="{{ url_for('main.connect_arduino') }}" class="btn">Conectar ao Arduino</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 AMA - Associação dos Amigos do Autista do Maranhão</p>
+    </footer>
+</body>
+</html>
